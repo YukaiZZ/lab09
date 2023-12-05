@@ -1,6 +1,5 @@
 package it.unibo.mvc;
 
-import java.io.File;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -23,16 +22,15 @@ public final class SimpleGUI {
 
     private final JFrame frame = new JFrame("My first Java graphical interface");
 
-
-    private SimpleGUI(Controller cl){
+    private SimpleGUI(final Controller cl) {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         final JPanel p1 = new JPanel();
         p1.setLayout(new BorderLayout());
         final JTextArea textA = new JTextArea();
         final JButton save = new JButton("Save");
-        save.addActionListener(new ActionListener(){
+        save.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(final ActionEvent event){
+            public void actionPerformed(final ActionEvent event) {
                 try {
                     cl.save(textA.getText());
                 } catch (IOException e) {
@@ -48,7 +46,7 @@ public final class SimpleGUI {
         final Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
         final int sw = (int) screen.getWidth();
         final int sh = (int) screen.getHeight();
-        frame.setSize(sw/2 , sh/2);
+        frame.setSize(sw / 2, sh / 2);
         frame.setLocationByPlatform(true);
 
     }
@@ -57,7 +55,12 @@ public final class SimpleGUI {
         frame.setVisible(true);
     }
 
-
+    /**
+     * Launches the application.
+     *
+     * @param a
+     *            unused
+     */
     public static void main(final String... a) {
         final SimpleGUI gui = new SimpleGUI(new Controller());
         gui.display();
