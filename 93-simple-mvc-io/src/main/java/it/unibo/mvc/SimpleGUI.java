@@ -62,7 +62,7 @@ public final class SimpleGUI {
      *            unused
      */
     public static void main(final String... a) {
-        final SimpleGUI gui = new SimpleGUI(new Controller());
+        final SimpleGUI gui = new SimpleGUI(new SimpleController());
         gui.display();
     }
 }
